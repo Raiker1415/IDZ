@@ -1,0 +1,27 @@
+<!-- HTML-код для форми входу -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вхід</title>
+</head>
+<body>
+    <h2>Вхід</h2>
+    <form method="POST" action="try_to_login.php">
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        
+        <label for="password">Пароль:</label><br>
+        <input type="password" name="password" required><br><br>
+        
+        <input type="submit" value="Увійти">
+    </form>
+    
+    <?php
+    if (isset($error)) {
+        echo "<p style='color:red;'>$error</p>";
+    }
+    ?>
+    
+    <p>Ще не маєте облікового запису? <a href="signup.php">Зареєструватися</a></p>
+</body>
+</html>

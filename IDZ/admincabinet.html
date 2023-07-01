@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        Раді Вас бачити, пане адмін!
+    </h2>
+
+    <script>
+        function Edit(button) {
+            
+            var buttonClass = button.classList[0];
+
+            console.log('Натиснуто кнопку з класом:', buttonClass);
+
+            var xhr = new XMLHttpRequest();
+            var url = 'edituser.php';
+            var params = 'email=' + buttonClass; 
+
+            xhr.open('POST', url, true);
+
+            
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    
+                    document.body.innerHTML = xhr.responseText;
+                    
+                }
+            };
+
+            xhr.send(params);
+
+        }
+        function Delete(button) {
+            
+            var buttonClass = button.classList[0];
+
+            console.log('Натиснуто кнопку з класом:', buttonClass);
+
+            var xhr = new XMLHttpRequest();
+            var url = 'deleteuser.php';
+            var params = 'email=' + buttonClass; 
+
+            xhr.open('POST', url, true);
+
+            
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    
+                    console.log(xhr.responseText);
+                }
+            };
+
+            xhr.send(params);
+
+            location.reload();
+
+        }
+    </script>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Змінити</th>
+                <th>Видалити</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php include 'showtable.php'; ?>
+        </tbody>
+    </table>
+    
+</body>
+</html>

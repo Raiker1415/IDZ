@@ -1,0 +1,22 @@
+<!-- HTML-код для форми реєстрації -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Реєстрація</title>
+</head>
+<body>
+    <h2>Відредагуйте дані користувача <?php echo($_POST['email']); ?></h2>
+    <form method="POST" action="save_users_change.php">
+        
+        <input type="text" name="email" style="display: none;" value= <?php echo( '"' . $_POST['email'] . '"'); ?>required>
+
+        <label for="username">Ім'я користувача:</label><br>
+        <input type="text" name="username" required><br><br>
+        
+        <label for="password">Пароль:</label><br>
+        <input type="password" name="password" required><br><br>
+        
+        <input type="submit" value="Зберегти">
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!-- HTML-код для форми реєстрації -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Реєстрація</title>
+</head>
+<body>
+    <h2>Реєстрація</h2>
+    <form method="POST" action="try_to_register.php">
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        
+        <label for="username">Ім'я користувача:</label><br>
+        <input type="text" name="username" required><br><br>
+        
+        <label for="password">Пароль:</label><br>
+        <input type="password" name="password" required><br><br>
+        
+        <input type="submit" value="Зареєструватися">
+    </form>
+    
+    <p>Вже маєте обліковий запис? <a href="signin.php">Увійти</a></p>
+</body>
+</html>
